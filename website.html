@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+ <head>
+   <link rel='stylesheet' href="website.css">
+   <meta charset = "UTF-8">
+   <title>Hello!</title>
+   <style>
+    textarea {
+      resize: none;
+    }
+    </style>
+   <script type = "text/javascript">
+    function sayHi(){
+    var txtName = document.getElementById("txtName");
+    var txtOutput = document.getElementById("txtOutput");
+    var frame1 = document.getElementById("frame1");
+    var frame2 = document.getElementById("frame2");
+    var frame3 = document.getElementById("frame3");
+    txtOutput.value = '';
+    frame1.value = '';
+    frame2.value = '';
+    frame3.value = '';
+    var name = txtName.value;
+    var i = 0;
+    var len = name.length;
+    for (var i = 0; i < len; i++) {
+      if (name[i] == 'T') {
+        txtOutput.value += 'U'
+      }
+      else if (name[i] == 'A' || name[i] == 'C' || name[i] == 'G') {
+        txtOutput.value += name[i]
+      }
+      else{
+        txtOutput.value = 'Wrong Input'
+      }
+    }
+    var hashy = new Map([['UUU', 'Phe'], ['UUC', 'Phe'], ['UUA', 'Leu'], ['UUG', 'Leu'], ['CUU', 'Leu'], ['CUC', 'Leu'], ['CUA', 'Leu'], ['CUG', 'Leu'], ['AUU', 'Ile'], ['AUC', 'Ile'], ['AUA', 'Ile'], ['AUG', 'Met'], ['GUU', 'Val'], ['GUC', 'Val'], ['GUA', 'Val'], ['GUG', 'Val'], ['UCU', 'Ser'], ['UCC', 'Ser'], ['UCA', 'Ser'], ['UCG', 'Ser'], ['CCU', 'Pro'], ['CCC', 'Pro'], ['CCA', 'Pro'], ['CCG', 'Pro'], ['ACU', 'Thr'], ['ACC', 'Thr'], ['ACA', 'Thr'], ['ACG', 'Thr'], ['GCU','Ala'],['GCC','Ala'], ['GCA', 'Ala'], ['GCG', 'Ala'], ['UAU', 'Tyr'], ['UAC', 'Tyr'], ['CAU', 'His'], ['CAC','His'], ['CAA', 'Gln'], ['CAG', 'Gln'], ['AAU', 'Asn'], ['AAC', 'Asn'], ['AAA', 'Lys'], ['AAG', 'Lys'], ['GAU', 'Asp'], ['GAC', 'Asp'], ['GAA', 'Glu'], ['GAG', 'Glu'], ['UGU', 'Cys'], ['UGC', 'Cys'], ['UGG', 'Trp'], ['CGU', 'Arg'], ['CGC', 'Arg'], ['CGA', 'Arg'], ['CGG', 'Arg'], ['AGU', 'Ser'], ['AGC', 'Ser'], ['AGA', 'Arg'], ['AGG', 'Arg'], ['GGU', 'Gly'], ['GGC', 'Gly'], ['GGA', 'Gly'], ['GGG', 'Gly']]);
+
+    var mRNA = txtOutput.value;
+    var ans = [];
+    for (var i = 0; i < 3; i++) {
+      var protein = mRNA.slice(i);
+      var leny = Math.floor((protein.length)/3);
+      var string = '';
+      for (var j = 0; j < leny; j++) {
+        if (protein.slice(3*j,3*j+3) == 'UAA' || protein.slice(3*j,3*j+3) == 'UAG' || protein.slice(3*j,3*j+3) == 'UGA') {
+          string += 'STOP';
+          break;
+        }
+        else {
+          string += hashy.get(protein.slice(3*j,3*j+3)) + ' ';
+        }
+      }
+      ans.push(string);
+    }
+
+    if (mRNA == 'Wrong Input'){
+      frame1.value = 'Undefined';
+      frame2.value = 'Undefined';
+      frame3.value = 'Undefined';
+    }
+    else {
+      frame1.value = ans[0];
+      frame2.value = ans[1];
+      frame3.value = ans[2];
+    }
+
+    }
+   </script>
+  </head>
+ <body>
+   <div class="container">
+     <h2>Sequence Translator</h2>
+   </div>
+   <form action = "">
+      <label class="info"><b>Sequence Translator</b> takes in a DNA sequence as an input and returns mRNA (from Transcription) and the corresponding protein sequenc (from Translation).</label>
+      <h2 class="DNA_sequence">DNA sequence:</h2>
+      <h2 class="mRNA_sequence">mRNA sequence:</h2>
+      <textarea type = "text" id = "txtName" placeholder="Enter DNA Sequence"/></textarea>
+      <input type = "button" class="submit"
+        value = "Translate"
+        onclick = "sayHi()"/>
+      <input type="reset" class="reset"
+        value= "Reset"/>
+      <h2 class="Protein_sequence">Protein sequences are:</h2>
+      <textarea type = "text" class="mrna" id = "txtOutput" readonly/></textarea>
+      <label class="label1">5'3' Frame 1:</label>
+      <textarea type = "text" class="frame1" id = "frame1" readonly/></textarea>
+      <label class="label2">5'3' Frame 2:</label>
+      <textarea type = "text" class="frame2" id = "frame2" readonly/></textarea>
+      <label class="label3">5'3' Frame 3:</label>
+      <textarea type = "text" class="frame3" id = "frame3" readonly/></textarea>
+  </form>
+ </body>
+</html>

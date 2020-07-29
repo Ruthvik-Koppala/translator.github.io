@@ -1,0 +1,147 @@
+body
+{
+  background: #EBF9FB;
+  padding: 0;
+  margin: 0;
+}
+.container
+{
+  width: auto;
+  height: 45px;
+  margin: 0;
+  background: #92CFF3;
+  position:auto;
+  top: 0;
+  right: 0;
+
+}
+.container h2
+{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family:verdana;
+  font-size:30px;
+  color:#333;
+  font-style:italic;
+  font-weight:bold;
+  text-align:centlefter;
+}
+textarea
+{
+  border: 1;
+  border-width: medium;
+  width: 575px;
+  height: 250px;
+  position: absolute;
+  top: 175px;
+  right: 900px;
+  text-align: left;
+  font-size: 20px;
+}
+input.submit
+{
+  border: 1;
+  width: 90px;
+  height: 40px;
+  position: absolute;
+  top: 245px;
+  right: 725px;
+}
+input.reset
+{
+  border: 1;
+  width: 90px;
+  height: 40px;
+  position: absolute;
+  top: 305px;
+  right: 725px;
+}
+textarea.mrna
+{
+  border: 1;
+  width: 575px;
+  height: 250px;
+  top: 175px;
+  right: 55px;
+}
+textarea.frame1
+{
+  border: 1;
+  width: 1000px;
+  height: 30px;
+  top: 525px;
+  right: 200px;
+}
+textarea.frame2
+{
+  border: 1;
+  width: 1000px;
+  height: 30px;
+  top: 600px;
+  right: 200px;
+}
+textarea.frame3
+{
+  border: 1;
+  width: 1000px;
+  height: 30px;
+  top: 675px;
+  right: 200px;
+}
+.label1
+{
+  position: absolute;
+  top: 530px;
+  left: 200px;
+  font-size: 18px;
+  font-family: verdana;
+}
+.label2
+{
+  position: absolute;
+  top: 605px;
+  left: 200px;
+  font-size: 18px;
+  font-family: verdana;
+}
+.label3
+{
+  position: absolute;
+  top: 680px;
+  left: 200px;
+  font-size: 18px;
+  font-family: verdana;
+}
+.Protein_sequence
+{
+  position: absolute;
+  top: 455px;
+  left: 330px;
+  font-family: verdana;
+}
+.DNA_sequence
+{
+  position: absolute;
+  top: 110px;
+  left: 55px;
+  font-family: verdana;
+}
+.mRNA_sequence
+{
+  position: absolute;
+  top: 110px;
+  left: 900px;
+  font-family: verdana;
+}
+.info
+{
+  position: absolute;
+  top: 80px;
+  left: 140px;
+  font-size: 15px;
+  font-family: verdana;
+}
