@@ -27,8 +27,14 @@
       if (name[i] == 'T' || name[i] == 't') {
         txtOutput.value += 'U'
       }
-      else if (name[i] == 'A' || name[i] == 'C' || name[i] == 'G' || name[i] == 'a' || name[i] == 'c' || name[i] == 'g') {
-        txtOutput.value += name[i]
+      else if (name[i] == 'A' || name[i] == 'a') {
+        txtOutput.value += 'A'
+      }
+      else if (name[i] == 'C' || name[i] == 'c') {
+        txtOutput.value += 'C'
+      }
+      else if (name[i] == 'G' || name[i] == 'g') {
+        txtOutput.value += 'G'
       }
       else{
         txtOutput.value = 'Wrong Input'
